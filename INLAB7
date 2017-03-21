@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+class learning_Material
+{
+    protected:
+        char isbn[15];
+        char title[20];
+        char author[20];
+        int year;
+        float price;
+        public:
+        void get();
+        void print();
+};
+class book: public learning_Material
+{   int pages;
+    public:
+    void get()
+    {
+        cin>>isbn>>title>>author>>year>>pages;
+    }
+    void print()
+    {
+        price=1.0*pages;
+        cout<<isbn<<"\n"<<title<<"\n"<<price<<"\n";
+    }
+
+};
+class cd: public learning_Material
+{
+    float minutes;
+    public:
+    void get()
+    {
+        cin>>isbn>>title>>author>>year>>minutes;
+    }
+    void print()
+    {
+        price=2.0*minutes;
+        cout<<isbn<<"\n"<<title<<"\n"<<price<<"\n";
+    }
+    
+};
+int main()
+{
+    int t;
+    cin>>t;
+    if(t==0)
+    {
+        books b;
+        b.get();
+        b.print();
+    }
+    else if(t==1)
+    {
+        cd c;
+        c.get();
+        c.print();
+    }
+    else
+        cout<<"Wrong Input";
+}
+     
+  
